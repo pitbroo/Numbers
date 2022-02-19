@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class EscTest {
+public class ExcTest {
 
     List<Integer> list;
     ArrayList<Integer> listInput2;
