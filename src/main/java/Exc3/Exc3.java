@@ -18,10 +18,10 @@ public class Exc3 {
         return adjacentPoints;
     }
 
-    public static void addEdge(ArrayList<ArrayList<Integer>> adj, int i, int j)
+    public static void addEdge(ArrayList<ArrayList<Integer>> adj, int A, int B)
     {
-        adj.get(i).add(j);
-        adj.get(j).add(i);
+        adj.get(A).add(B);
+        adj.get(B).add(A);
     }
     public static void addEdges(Graph graph, ArrayList<ArrayList<Integer>> adjacentPoints){
         graph.getEdges().forEach(edge -> {
@@ -43,9 +43,8 @@ public class Exc3 {
         int pred[] = new int[numberOfVartices];
         int dist[] = new int[numberOfVartices];
 
-        if (BFS(adjacentPoints, source, destination, numberOfVartices, pred, dist) == false) {
-            log.info("Given source and destination" +
-                    "are not connected");
+        if (!BFS(adjacentPoints, source, destination, numberOfVartices, pred, dist)) {
+            log.info("Brak podanej ścieżki");
             return -1;
         }
 
@@ -68,8 +67,7 @@ public class Exc3 {
         return dist[destination];
     }
 
-    private static boolean BFS(ArrayList<ArrayList<Integer>> adj, int src,
-                               int dest, int v, int pred[], int dist[])
+    private static boolean BFS(ArrayList<ArrayList<Integer>> adj, int src, int dest, int v, int pred[], int dist[])
     {
         LinkedList<Integer> queue = new LinkedList<Integer>();
 
@@ -88,7 +86,7 @@ public class Exc3 {
         while (!queue.isEmpty()) {
             int u = queue.remove();
             for (int i = 0; i < adj.get(u).size(); i++) {
-                if (visited[adj.get(u).get(i)] == false) {
+                if (!visited[adj.get(u).get(i)]) {
                     visited[adj.get(u).get(i)] = true;
                     dist[adj.get(u).get(i)] = dist[u] + 1;
                     pred[adj.get(u).get(i)] = u;

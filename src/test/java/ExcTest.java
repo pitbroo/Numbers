@@ -15,18 +15,13 @@ import java.util.List;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ExcTest {
 
-    List<Integer> list;
     ArrayList<Integer> listInput2;
     ArrayList<Integer> listOutput2;
-    int m;
-    Graph graph;
 
     @BeforeAll
     void set() {
         /**Tu podać elementy list: */
         List<Integer> list = new ArrayList<Integer>(Arrays.asList( 1, 2, 3, 4 ));
-        /** Tu podać, która największa */
-        m = 3;
 
 
     }
@@ -39,15 +34,15 @@ public class ExcTest {
                 1, 2, 3, 4
         ));
         /** Tu podać, która m-ta największa */
-        m = 3;
+        int m = 3;
         Assertions.assertEquals(exc1.almostGreatestNumber( m, list1), 2);
     }
 
-    @Test
-    void should3Deviders(){
-        Exc2 exc2 = new Exc2();
-        Assertions.assertTrue(exc2.numberHave3Divisors(6));
-    }
+//    @Test
+//    void should3Deviders(){
+//        Exc2 exc2 = new Exc2();
+//        Assertions.assertTrue(exc2.numberHave3Divisors(6));
+//    }
     /** Exc2.Exc2 - ZADANIE 2*/
     @Test
     void shouldGetListWith3Divider(){
